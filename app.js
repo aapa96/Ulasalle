@@ -4,7 +4,6 @@ let bodyParser = require('body-parser');
 let path = require('path');
 let Moment = require('moment')
 var moment = require('moment-timezone');
-moment().tz("America/Lima").format();
 
 let app = express();
 
@@ -25,10 +24,4 @@ let editoriales = require('./Modulo/Ev4/routes');
 app.use('/api',authors);
 app.use('/api',user);
 app.use('/api',editoriales);
-app.use(('/'),function(req,res){
-    res.status(200).send({
-        Message:"Hola amigo que haces aqui ?"
-    })
-})
-
 module.exports=app;
