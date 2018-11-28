@@ -18,10 +18,7 @@ app.use((req,res,next)=>{
     next();
 });
 
-let user = require('./Modulo/Usuario/ruta');
-let authors = require('./Modulo/Autores/ruta');
 let editoriales = require('./Modulo/Ev4/routes');
-app.use('/api',authors);
-app.use('/api',user);
+
 app.use('/api',editoriales);
 module.exports=app;
