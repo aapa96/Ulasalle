@@ -47,7 +47,7 @@ function loginUser(req,res){
 	var email = params.email;
 	var password = params.password;
 
-    let sql = "SELECT * FROM `users` WHERE userName = " + email + 'AND password =' + password; 
+    let sql = "SELECT * FROM `users` WHERE userName = " + email;
     db.query(sql,function(err,result){
         if(err){
             res.status(500).send({

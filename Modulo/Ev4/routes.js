@@ -10,7 +10,7 @@ api.post('/user/login',controlador.loginUser);
 api.post('/editoriales/create',controlador.EditorialesCreate);
 api.get('/editoriales/read',controlador.EditorialesRead);
 api.get('/editoriales/read/:id',controlador.EditorialesReadOne);
-api.put('/editoriales/update    ',controlador.EditorialesUpdate);
+api.put('/editoriales/update',controlador.EditorialesUpdate);
 api.delete('/editoriales/delete/:id',controlador.EditorialesDelete);
 
 api.post('/branchs/create',controlador.BranchCreate);
