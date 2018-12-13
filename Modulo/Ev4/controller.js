@@ -44,7 +44,7 @@ function saveUser(req,res){
 }
 function loginUser(req,res){
 	var params = req.body;
-	var email = params.email;
+	var userName = params.userName;
 	var password = params.password;
 
     let sql = "SELECT * FROM `users` WHERE userName = " + email;
