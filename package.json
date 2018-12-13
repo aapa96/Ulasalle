@@ -13,6 +13,7 @@
     "nodemon": "^1.18.4"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "connect": "^3.6.6",
     "connect-multiparty": "^2.2.0",

@@ -1,11 +1,66 @@
+'use strict'
 var db = require('../../db');
 let Moment = require('moment')
+var bcrypt = require('bcrypt-nodejs');
+var jwt = require('./jwt');
 
 function pruebas(req,res){
     res.status(200).send({
         message:"Controlador crud funcionando"
     });
 }
+function saveUser(req,res){
+    let params = req.body;
+    var userName = params.userName;
+    var password = params.password;
+	var estatus = params.estatus;
+	var birth = Moment(params.birth).format("YYYY-MM-DD");
+	var gender = params.gender
+    var rol_id= params.rol_id;
+    bcrypt.hash(params.password,null,null,function(err,hash){
+        password = hash;
+        var sql = "INSERT INTO `users`  (userName,password,estatus,birth,gender,rol_id) VALUES ('"+
+                userName +"', '"+
+                password +"', '"+
+                estatus +"', '"+
+                birth +"', '"+
+                gender +"', '"+
+                rol_id +"', '"+
+                "')";
+    
+        db.query(sql, function (err, result) {
+            if(err){
+                res.status(500).send({
+                    Message:err
+                })
+            }else{
+                res.status(200).send({
+                    Users:result
+                });
+            }
+        });  
+    });
+
+}
+function loginUser(req,res){
+	var params = req.body;
+	var email = params.email;
+	var password = params.password;
+
+    let sql = "SELECT * FROM `users` WHERE userName = " + email + 'AND password =' + password; 
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Editorial:result
+            });
+        }
+    })
+}
+
 
 
 function EditorialesCreate(req,res){
@@ -378,7 +433,311 @@ function CrudReadOne(req,res){
     })
 }
 
+
+function CopiesCreate(req,res){
+    let params = req.body;
+    var article_id = params.article_id;
+    var branch_id = params.branch_id;
+    var status = params.status;
+    var available = params.available;
+    var details = params.details;
+
+
+    var sql = "INSERT INTO `copies`  (article_id,branch_id,status,available,details) VALUES ('"+
+            article_id +"', '"+
+            branch_id +"', '"+
+            status +"', '"+
+            available +"', '"+
+            details +"')";
+    db.query(sql, function (err, result) {
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies:result
+            });
+        }
+    }); 
+}
+function CopiesRead(req,res){
+    let sql = "SELECT * FROM `copies`";
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies:result
+            });
+        }
+    })
+}
+function CopiesReadOne(req,res){
+    let id = req.params.id;
+    let sql = "SELECT * FROM `copies` WHERE id = " + id; 
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies:result
+            });
+        }
+    })
+}
+function CopiesUpdate(req,res){
+	let params = req.body;
+	var id = params.id;
+    var article_id = params.article_id;
+    var branch_id = params.branch_id;
+    var status = params.status;
+    var available = params.available;
+	var created = Moment(params.created).format("YYYY-MM-DD");
+	var modified = Moment(params.modified).format("YYYY-MM-DD");
+    var details = params.details;
+
+
+    var sql = "UPDATE `copies` SET"+ 
+    " `article_id` = '" + article_id + "',"+
+    " `branch_id` = '" + branch_id +  "',"+
+    " `status` = '" + status +  "',"+
+    " `available` = '" + available +  "',"+
+    " `details` = '" + details +  "',"+
+    " WHERE id = '" + id + "' ";
+
+    db.query(sql, function (err, result) {
+    if(err){
+        res.status(500).send({
+            Message:err
+        })
+    }else{ 
+        res.status(200).send({
+            Copies:result
+        });
+    }
+    }); 
+}
+function CopiesDelete(req,res){
+    let id = req.params.id;
+    let sql = "DELETE FROM `copies` WHERE id = " + id; // query database to get all the players
+    db.query(sql, function (err, result) {
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies:result
+            });
+        }
+    }); 
+}
+function AccessCreate(req,res){
+	
+	let params = req.body;
+	var created= Moment(params.created).format("YYYY-MM-DD");
+    var ip = params.ip;
+	var user_id = params.user_id;
+    var user_agent = params.user_agent;
+
+    var sql = "INSERT INTO `access`  (ip,user_id,user_agent) VALUES ('"+
+            ip +"', '"+
+            user_id +"', '"+
+            user_agent +"', '"+
+            "')";
+
+    db.query(sql, function (err, result) {
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Access:result
+            });
+        }
+    }); 
+    
+    
+
+}
+function AccessRead(req,res){
+    let sql = "SELECT * FROM `access`";
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Access:result
+            });
+        }
+    })
+}
+function AccessReadOne(req,res){
+    let id = req.params.id;
+    let sql = "SELECT * FROM `access` WHERE id = " + id; 
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Access:result
+            });
+        }
+    })
+}
+function AccessUpdate(req,res){
+	let params = req.body;
+	var id=params.id;
+	var created= Moment(params.created).format("YYYY-MM-DD");
+    var ip = params.ip;
+	var user_id = params.user_id;
+    var user_agent = params.user_agent;
+
+    var sql = "UPDATE `access SET"+ 
+    " `ip = '" + ip +  "',"+
+    " `user_id` = '" + user_id +  "',"+
+    " `user_agent` = '" + user_agent+  "',"+ "' ";
+	" WHERE id = '" + id + "' ";
+
+    db.query(sql, function (err, result) {
+    if(err){
+        res.status(500).send({
+            Message:err
+        })
+    }else{ 
+        res.status(200).send({
+            Access:result
+        });
+    }
+    }); 
+}
+function AccessDelete(req,res){
+    let id = req.params.id;
+    let sql = "DELETE FROM `access` WHERE id = " + id; // query database to get all the players
+    db.query(sql, function (err, result) {
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Access:result
+            });
+        }
+    }); 
+}
+
+function Copies_usersCreate(req,res){
+    let params = req.body;
+    var user_id= params.user_id;
+    var finish= Moment(params.finish).format("YYYY-MM-DD");
+    var status= params.status;
+
+    var sql = "INSERT INTO `copies_users`  (user_id,finish,status) VALUES ('"+
+            
+            user_id +"', '"+
+            finish +"', '"+
+            status +"')";
+
+    db.query(sql, function (err, result) {
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies_users:result
+            });
+        }
+    });    
+}
+
+function Copies_usersRead(req,res){
+    let sql = "SELECT * FROM `copies_users`";
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies_users:result
+            });
+        }
+    })
+}
+function Copies_usersReadOne(req,res){
+    let id = req.params.id;
+    let sql = "SELECT * FROM `copies_users` WHERE id = " + id; 
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies_users:result
+            });
+        }
+    })
+}
+function Copies_usersUpdate(req,res){
+	let params = req.body;
+	var id= params.id;
+    var user_id= params.user_id;
+    var finish= Moment(params.finish).format("YYYY-MM-DD");
+    var status= params.status;
+
+    var sql = "UPDATE `users` SET"+ 
+    " `user_id` = '" + user_id + "',"+
+    " `finish` = '" + finish+  "',"+
+	" `status` = '" + status+  "',"+
+    " WHERE id = '" + id + "' ";
+
+    db.query(sql, function (err, result) {
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies_users:result
+            });
+        }
+    }); 
+}
+function Copies_usersDelete(req,res){
+    let id = req.params.id;
+    let sql = "DELETE FROM `copies_users` WHERE id = " + id; // query database to get all the players
+    db.query(sql, function (err, result) {
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                Copies_users:result
+            });
+        }
+    }); 
+}
+
+
 module.exports ={
+
+    saveUser,
+    loginUser,
+
     EditorialesCreate,
     EditorialesRead,
     EditorialesReadOne,
@@ -399,6 +758,26 @@ module.exports ={
 
     CrudCreate,
     CrudRead,
-    CrudReadOne
+    CrudReadOne,
+
+    CopiesCreate,
+    CopiesRead,
+    CopiesReadOne,
+    CopiesUpdate,
+    CopiesDelete,
+
+    AccessCreate,
+    AccessRead,
+    AccessReadOne,
+    AccessUpdate,
+    AccessDelete,
+
+    Copies_usersCreate,
+    Copies_usersRead,
+    Copies_usersReadOne,
+    Copies_usersUpdate,
+    Copies_usersDelete
+    
+
 
 }
