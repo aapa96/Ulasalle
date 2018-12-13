@@ -16,16 +16,16 @@ function saveUser(req,res){
 	var estatus = params.estatus;
 	var birth = Moment(params.birth).format("YYYY-MM-DD");
 	var gender = params.gender
-    var rol_id= params.rol_id;
+    var role_id= params.role_id;
     bcrypt.hash(params.password,null,null,function(err,hash){
         password = hash;
-        var sql = "INSERT INTO `users`  (userName,password,estatus,birth,gender,rol_id) VALUES ('"+
+        var sql = "INSERT INTO `users`  (userName,password,estatus,birth,gender,role_id) VALUES ('"+
                 userName +"', '"+
                 password +"', '"+
                 estatus +"', '"+
                 birth +"', '"+
                 gender +"', '"+
-                rol_id +"', '"+
+                role_id +"', '"+
                 "')";
     
         db.query(sql, function (err, result) {
