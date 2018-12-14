@@ -17,21 +17,24 @@ function saveUser(req,res){
 	var birth = Moment(params.birth).format("YYYY-MM-DD");
 	var gender = params.gender
     var role_id= params.role_id;
+    console.log(params);
     bcrypt.hash(params.password,null,null,function(err,hash){
         password = hash;
         var sql = "INSERT INTO `users`  (userName,password,estatus,birth,gender,role_id) VALUES ('"+
-                userName +"', '"+
-                password +"', '"+
-                estatus +"', '"+
-                birth +"', '"+
-                gender +"', '"+
-                role_id +"', '"+
-                "')";
+            userName +"', '"+
+            password +"', '"+
+            estatus +"', '"+
+            birth +"', '"+
+            gender +"', '"+
+            role_id +"')";
+        console.log(sql);
     
         db.query(sql, function (err, result) {
             if(err){
+                console.log(err)
                 res.status(500).send({
                     Message:err
+                    
                 })
             }else{
                 res.status(200).send({
