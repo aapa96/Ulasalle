@@ -62,7 +62,7 @@ function loginUser(req,res){
             var user = result;
             bcrypt.compare(password,user.password,(err,resp)=>{
                 res.status(200).send({
-                    Login:result
+                    token:jwt.createToken(user) 
                 });
             })
         }
