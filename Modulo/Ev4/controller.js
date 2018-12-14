@@ -48,18 +48,23 @@ function saveUser(req,res){
 function loginUser(req,res){
 	var params = req.body;
 	var userName = params.userName;
-	var password = params.password;
+    var password = params.password;
+    
 
-    let sql = "SELECT * FROM `users` WHERE userName = '" + userName + "' AND password = '" + password + "'" ;
+    let sql = "SELECT * FROM `users` WHERE userName = '" + userName + "'" ;
+
     db.query(sql,function(err,result){
         if(err){
             res.status(500).send({
                 Message:err
             })
         }else{
-            res.status(200).send({
-                Editorial:result
-            });
+            var user = result;
+            bcrypt.compare(password,user.password,(err,resp)=>{
+                res.status(200).send({
+                    Login:result
+                });
+            })
         }
     })
 }
