@@ -252,12 +252,12 @@ function BranchUpdate(req,res){
     var status = params.status;
 
 
-    var sql = "UPDATE `editoriales` SET"+ 
+    var sql = "UPDATE `branchs` SET"+ 
     " `name` = '" + name + "',"+
     " `address` = '" + address +  "',"+
     " `latitude` = '" + latitude +  "',"+
     " `longitude` = '" + longitude+  "',"+
-    " `status` = '" + status +  "',"+
+    " `status` = '" + status +  "'"+
     " WHERE id = '" + id + "' ";
 
     db.query(sql, function (err, result) {
@@ -346,14 +346,13 @@ function OrganizationReadOne(req,res){
 function OrganizationUpdate(req,res){
     let params = req.body;
     var name = params.name;
-    var status = params.address;
-    var created = Moment(params.date).format("YYYY-MM-DD");
+    var id = params.id;
+    var status = params.status;
 
-    var sql = "UPDATE `editoriales` SET"+ 
-    " `name` = '" + name + "',"+
-    " `status` = '" + status+  "',"+
-    " `created` = '" + created +  "',"+
-    " WHERE id = '" + id + "' ";
+    var sql = "UPDATE organizations SET"+ 
+    " name = '" + name + "',"+
+    " status = '" + status+  "'"+
+    " WHERE id = '" + id +"'";
 
     db.query(sql, function (err, result) {
         if(err){
