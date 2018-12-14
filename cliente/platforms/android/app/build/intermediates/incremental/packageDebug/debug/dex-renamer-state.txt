@@ -1,0 +1,4 @@
+#Fri Dec 14 08:32:42 PET 2018
+base.0=/Users/alexparedesaranzamendi/Desktop/Universidad/biblioteca/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+file.0=/Users/alexparedesaranzamendi/Desktop/Universidad/biblioteca/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex

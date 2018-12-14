@@ -768,6 +768,10 @@ module.exports ={
     CrudRead,
     CrudReadOne,
 
+
+
+    /////Jarol
+
     CopiesCreate,
     CopiesRead,
     CopiesReadOne,
