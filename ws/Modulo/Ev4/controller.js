@@ -88,33 +88,39 @@ function UserUpdate(req,res){
     let params = req.body;
     var id = params.id;
     var userName = params.userName;
-    var password = params.password;
+    var password;
 	var estatus = params.estatus;
 	var birth = Moment(params.birth).format("YYYY-MM-DD");
 	var gender = params.gender
     var role_id= params.role_id;
+    bcrypt.hash(params.password,null,null,function(err,hash){
+        password = hash;
+        var sql = "UPDATE `users` SET"+ 
+        " `userName` = '" + userName + "',"+
+        " `password` = '" + password +  "',"+
+        " `estatus` = '" + estatus +  "',"+
+        " `birth` = '" + birth +  "',"+
+        " `gender` = '" + gender +  "',"+
+        " `role_id` = '" + role_id +  "'"+
+        " WHERE id = '" + id + "' ";
+    
+        db.query(sql, function (err, result) {
+            if(err){
+                console.log(err)
+                res.status(500).send({
+                    Message:err
+                    
+                })
+            }else{
+                res.status(200).send({
+                    Users:result
+                });
+            }
+        });  
+    });
 
+    
 
-    var sql = "UPDATE `users` SET"+ 
-    " `userName` = '" + userName + "',"+
-    " `password` = '" + password +  "',"+
-    " `estatus` = '" + estatus +  "',"+
-    " `birth` = '" + birth +  "',"+
-    " `gender` = '" + gender +  "',"+
-    " `role_id` = '" + role_id +  "'"+
-    " WHERE id = '" + id + "' ";
-
-    db.query(sql, function (err, result) {
-    if(err){
-        res.status(500).send({
-            Message:err
-        })
-    }else{ 
-        res.status(200).send({
-            Editorial:result
-        });
-    }
-    }); 
 }
 
 

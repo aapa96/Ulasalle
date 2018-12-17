@@ -18,8 +18,9 @@ export class ProfilePage {
 
   user:any;
   userfull:any;
-
+  password:any;
   constructor(public services:ServicesProvider,public navCtrl: NavController, public navParams: NavParams) {
+    this.password = "";
     this.user = {
       id:localStorage.getItem('biblioteca_user'),
       userName:"",
@@ -41,7 +42,10 @@ export class ProfilePage {
   getUser(){
     this.services.getUser(this.user.id).subscribe(
       (result) =>{
-        console.log(result);
+        
+        this.userfull = result;
+        this.userfull = this.userfull.User[0];
+        console.log(this.userfull);
       }
     )
   }
