@@ -3,6 +3,11 @@
     <ion-title>
       Biblioteca
     </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="presentProfileModal()">
+          <ion-icon name="options"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -42,7 +47,7 @@
                 {{b.name}}
                 <p *ngFor="let c of copies" >
                     <span *ngIf="c.branch_id == b.id">* {{c.details}}</span>
-                  </p>
+                </p>
               </ion-item>
             </ion-list>
         </ion-list>

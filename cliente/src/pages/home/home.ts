@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { ServicesProvider } from '../../providers/services/services';
 import { TextPage } from '../text/text';
 import { AddPage } from '../add/add';
+import { ModalController, NavParams } from 'ionic-angular';
+import { ProfilePage } from '../profile/profile';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class HomePage  {
   public organizations:any;
   public copies:any;
   option:any;
-  constructor(public navCtrl: NavController, public sp:ServicesProvider){
+  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public sp:ServicesProvider){
     // this.getBranchs();
     // this.getOrganizations();
     // this.getEditoriales();
@@ -31,6 +33,9 @@ export class HomePage  {
     this.getCopies();
   }
   
+  presentProfileModal() {
+    this.navCtrl.push(ProfilePage);
+  }
   getBranchs(){
     this.sp.getBranchs().subscribe(
       (result) =>{
@@ -75,6 +80,7 @@ export class HomePage  {
       }
     )
   }
+  
   refresh(){
     this.getBranchs();
     this.getOrganizations();

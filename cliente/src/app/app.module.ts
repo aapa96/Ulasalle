@@ -18,11 +18,12 @@ import { AddPage } from '../pages/add/add';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { StartPage } from '../pages/start/start';
+import { ProfilePage } from '../pages/profile/profile';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,TextPage,AddPage,LoginPage,RegisterPage,StartPage
+    HomePage,TextPage,AddPage,LoginPage,RegisterPage,StartPage,ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,7 @@ import { StartPage } from '../pages/start/start';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,TextPage,AddPage,LoginPage,RegisterPage,StartPage
+    HomePage,TextPage,AddPage,LoginPage,RegisterPage,StartPage,ProfilePage
   ],
   providers: [
     StatusBar,
