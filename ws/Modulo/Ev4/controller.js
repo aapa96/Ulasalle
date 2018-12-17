@@ -69,6 +69,21 @@ function loginUser(req,res){
         }
     })
 }
+function UsersReadOne(req,res){
+    let id = req.params.id;
+    let sql = "SELECT * FROM `users` WHERE id = " + id; 
+    db.query(sql,function(err,result){
+        if(err){
+            res.status(500).send({
+                Message:err
+            })
+        }else{
+            res.status(200).send({
+                User:result
+            });
+        }
+    })
+}
 function UserUpdate(req,res){
     let params = req.body;
     var id = params.id;
@@ -775,6 +790,8 @@ module.exports ={
 
     saveUser,
     loginUser,
+    UsersReadOne,
+    UserUpdate,
 
     EditorialesCreate,
     EditorialesRead,

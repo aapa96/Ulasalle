@@ -323,6 +323,15 @@ var ProfilePage = /** @class */ (function () {
     function ProfilePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.user = {
+            id: localStorage.getItem('biblioteca_user'),
+            userName: "",
+            password: "",
+            estatus: "",
+            birth: "",
+            gender: "",
+            role_id: ""
+        };
     }
     ProfilePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProfilePage');
@@ -331,9 +340,10 @@ var ProfilePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-profile',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/profile/profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>profile</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/profile/profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=profile.js.map
@@ -341,6 +351,63 @@ var ProfilePage = /** @class */ (function () {
 /***/ }),
 
 /***/ 107:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StartPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(108);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the StartPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var StartPage = /** @class */ (function () {
+    function StartPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    StartPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad StartPage');
+    };
+    StartPage.prototype.changePage = function (item) {
+        if (item == 1) {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
+        }
+        if (item == 2) {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__register_register__["a" /* RegisterPage */]);
+        }
+    };
+    StartPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-start',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/start/start.html"*/'<!--\n  Generated template for the StartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content padding class="fondo">\n<div class="buttons">\n    <div>\n        <button (click)="changePage(1)" ion-button round color="secondary" full>Ingresar</button>\n    </div>\n    <div>\n        <button (click)="changePage(2)" ion-button round  full>Registrarse</button>\n    </div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/start/start.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], StartPage);
+    return StartPage;
+}());
+
+//# sourceMappingURL=start.js.map
+
+/***/ }),
+
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -404,63 +471,6 @@ var RegisterPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 108:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StartPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(107);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the StartPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var StartPage = /** @class */ (function () {
-    function StartPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    StartPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad StartPage');
-    };
-    StartPage.prototype.changePage = function (item) {
-        if (item == 1) {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
-        }
-        if (item == 2) {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__register_register__["a" /* RegisterPage */]);
-        }
-    };
-    StartPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-start',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/start/start.html"*/'<!--\n  Generated template for the StartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-content padding class="fondo">\n<div class="buttons">\n    <div>\n        <button (click)="changePage(1)" ion-button round color="secondary" full>Ingresar</button>\n    </div>\n    <div>\n        <button (click)="changePage(2)" ion-button round  full>Registrarse</button>\n    </div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/start/start.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], StartPage);
-    return StartPage;
-}());
-
-//# sourceMappingURL=start.js.map
-
-/***/ }),
-
 /***/ 120:
 /***/ (function(module, exports) {
 
@@ -495,11 +505,11 @@ var map = {
 		3
 	],
 	"../pages/register/register.module": [
-		286,
+		287,
 		2
 	],
 	"../pages/start/start.module": [
-		287,
+		286,
 		1
 	],
 	"../pages/text/text.module": [
@@ -556,8 +566,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_text_text__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_add__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_login_login__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_register_register__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_start_start__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_register_register__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_start_start__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_profile_profile__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -600,8 +610,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/add/add.module#AddPageModule', name: 'AddPage', segment: 'add', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/start/start.module#StartPageModule', name: 'StartPage', segment: 'start', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/text/text.module#TextPageModule', name: 'TextPage', segment: 'text', priority: 'low', defaultHistory: [] }
                     ]
                 })
@@ -637,7 +647,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_start_start__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_start_start__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -953,10 +963,9 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Biblioteca\n    </ion-title>\n    <ion-buttons end>\n        <button ion-button icon-only (click)="presentProfileModal()">\n          <ion-icon name="options"></ion-icon>\n        </button>\n      </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-segment [(ngModel)]="option">\n      <ion-segment-button value="Organization">\n        Organizacion\n      </ion-segment-button>\n      <ion-segment-button value="Branch">\n        Sucursal\n      </ion-segment-button>\n      <ion-segment-button value="Editorial">\n        Editoriales\n      </ion-segment-button>\n    </ion-segment>\n    \n    <div *ngIf="option == Branch">\n\n    </div>\n    <div [ngSwitch]="option">\n\n        <ion-list *ngSwitchCase="\'Organization\'">\n            <ion-list style="padding-top:20px;">\n              <!-- <ion-item style="text-align:center;" [navPush]="addpage" [navParams]="{ value : \'organization\' }" ><button ion-button full  >Add Organization</button></ion-item> -->\n              <ion-item style="text-align:center;" (click)="refresh()"  ><button ion-button full >List Organizaciones</button></ion-item>\n            <ion-item *ngFor="let b of organizations"[navPush]="textPage" [navParams]="{ value : b,type:\'o\' }">\n                {{b.name}}\n              </ion-item>\n            </ion-list>\n        </ion-list>\n        <ion-list *ngSwitchCase="\'Branch\'">\n          <ion-list style="padding-top:20px;">\n              <!-- <ion-item style="text-align:center;" [navPush]="addpage" [navParams]="{ value : \'branch\' }" ><button ion-button full  >Add Branch</button></ion-item> -->\n              <ion-item style="text-align:center;" (click)="refresh()"  ><button ion-button full >List Sucursales</button></ion-item>\n              <ion-item *ngFor="let b of branchs"[navPush]="textPage" [navParams]="{ value : b ,type:\'s\'}">\n                {{b.name}}\n                <p *ngFor="let c of copies" >\n                    <span *ngIf="c.branch_id == b.id">* {{c.details}}</span>\n                </p>\n              </ion-item>\n            </ion-list>\n        </ion-list>\n        <ion-list *ngSwitchCase="\'Editorial\'">\n            <ion-list style="padding-top:20px;">\n                <!-- <ion-item style="text-align:center;" [navPush]="addpage" [navParams]="{ value : \'editorial\' }" ><button ion-button full  >Add Editorial</button></ion-item> -->\n                <ion-item style="text-align:center;" (click)="refresh()"  ><button ion-button full >List Editorial</button></ion-item>\n            <ion-item *ngFor="let b of editoriales"[navPush]="textPage" [navParams]="{ value : b,type:\'e\' }">\n                {{b.name}}\n              </ion-item>\n            </ion-list>\n        </ion-list>\n      </div>\n</ion-content>\n\n\n<!-- \n  La forma tradicional para evaluar psicologicamente a un alumno de secundaria en colegios estatales actualmente son pasados desapercibidos. Hoy en dia a nivel mundial el diseño y el uso de herramientas graficas en dispositivos moviles permite despertar el interes de las personas. En el Perú la gran mayoria de colegios estatales no disponen del area de psicologia. En este articulo se presenta una propuesta para evaluar jovenes estudiantes del nivel secundario mediante un aplicativo usando interfaces de usuario.\n -->\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_services_services__["a" /* ServicesProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_services_services__["a" /* ServicesProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_services_services__["a" /* ServicesProvider */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map

@@ -15,7 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
+  user:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.user = {
+      id:localStorage.getItem('biblioteca_user'),
+      userName:"",
+      password:"",
+      estatus:"",
+      birth:"",
+      gender:"",
+      role_id:""
+
+    }
   }
 
   ionViewDidLoad() {

@@ -6,6 +6,8 @@ let api = express.Router();
 
 api.post('/user/create',controlador.saveUser);
 api.post('/user/login',controlador.loginUser);
+api.post('/user/update',controlador.UserUpdate);
+api.post('/user/read/:id',controlador.UsersReadOne);
 
 api.post('/editoriales/create',controlador.EditorialesCreate);
 api.get('/editoriales/read',controlador.EditorialesRead);
