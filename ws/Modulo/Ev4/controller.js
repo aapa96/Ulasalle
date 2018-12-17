@@ -556,8 +556,7 @@ function AccessCreate(req,res){
     var sql = "INSERT INTO `access`  (ip,user_id,user_agent) VALUES ('"+
             ip +"', '"+
             user_id +"', '"+
-            user_agent +"', '"+
-            "')";
+            user_agent +"')";
 
     db.query(sql, function (err, result) {
         if(err){
