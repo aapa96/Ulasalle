@@ -40,6 +40,9 @@
               <ion-item style="text-align:center;" (click)="refresh()"  ><button ion-button full >List Sucursales</button></ion-item>
               <ion-item *ngFor="let b of branchs"[navPush]="textPage" [navParams]="{ value : b ,type:'s'}">
                 {{b.name}}
+                <p *ngFor="let c of copies" >
+                    <span *ngIf="c.branch_id == b.id">* {{c.details}}</span>
+                  </p>
               </ion-item>
             </ion-list>
         </ion-list>

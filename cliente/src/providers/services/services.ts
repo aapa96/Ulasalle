@@ -25,7 +25,23 @@ export class ServicesProvider {
   getEditoriales(){
     return this.http.get(this.url + 'editoriales/read');
   }
+  getCopies(){
+    return this.http.get(this.url + 'copies/read');
+  }
 
+  IP(){
+    var ip="https://api.ipify.org?format=json";
+    return this.http.get(ip);
+  }
+  public ip:any;
+  getip(){
+    this.IP().subscribe(
+      (result) =>{
+        this.ip = result;
+        return this.ip;
+      }
+    )
+  }
 
   createBranch(branch:any){
     const httpOptions =  {
@@ -72,6 +88,21 @@ export class ServicesProvider {
       name:org.name,
       id:org.id,
       status:org.status
+
+    },  httpOptions);
+  
+  }
+
+  createAccess(acc:any){
+    const httpOptions =  {
+        headers:  new HttpHeaders( {
+            'Content-Type': 'application/json'
+        })
+    };
+    return this.http.post(this.url + 'access/create', {
+      ip:acc.ip,
+      user_id:acc.user_id,
+      user_agent:acc.user_agent
 
     },  httpOptions);
   

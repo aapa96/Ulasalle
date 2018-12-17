@@ -13,7 +13,7 @@ export class HomePage  {
   public branchs:any;
   public editoriales:any;
   public organizations:any;
-
+  public copies:any;
   option:any;
   constructor(public navCtrl: NavController, public sp:ServicesProvider){
     // this.getBranchs();
@@ -28,6 +28,7 @@ export class HomePage  {
     this.getBranchs();
     this.getOrganizations();
     this.getEditoriales();
+    this.getCopies();
   }
   
   getBranchs(){
@@ -58,6 +59,17 @@ export class HomePage  {
         this.sp.generateCrud('get','organization');
         let x:any = result;
         this.organizations = x.Organizations;
+        // JSON.stringify(this.branchs);
+        console.log(result );
+      }
+    )
+  }
+  getCopies(){
+    this.sp.getCopies().subscribe(
+      (result) =>{
+        this.sp.generateCrud('get','copies');
+        let x:any = result;
+        this.copies = x.Copies;
         // JSON.stringify(this.branchs);
         console.log(result );
       }
