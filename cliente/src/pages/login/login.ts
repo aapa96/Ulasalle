@@ -49,6 +49,7 @@ export class LoginPage {
         
         this.services.generateCrud('post','users');
         localStorage.setItem('biblioteca',this.token.token)
+        localStorage.setItem('biblioteca_user_full',this.token.user);
         localStorage.setItem('biblioteca_user',this.token.user.id)
         
         this.createAccess();

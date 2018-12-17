@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServicesProvider {
   public url = "https://turisteape.herokuapp.com/api/";
+  //localhost:3977
   constructor(public http: HttpClient) {
     console.log('Hello ServicesProvider Provider');
   }
@@ -27,6 +28,9 @@ export class ServicesProvider {
   }
   getCopies(){
     return this.http.get(this.url + 'copies/read');
+  }
+  getUser(id:any){
+    return this.http.get(this.url + 'user/read/'+id);
   }
 
   IP(){

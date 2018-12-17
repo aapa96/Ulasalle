@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServicesProvider } from '../../providers/services/services';
 
 /**
  * Generated class for the ProfilePage page.
@@ -16,8 +17,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ProfilePage {
 
   user:any;
+  userfull:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public services:ServicesProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.user = {
       id:localStorage.getItem('biblioteca_user'),
       userName:"",
@@ -28,10 +30,21 @@ export class ProfilePage {
       role_id:""
 
     }
+    this.getUser();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
+
+
+  getUser(){
+    this.services.getUser(this.user.id).subscribe(
+      (result) =>{
+        console.log(result);
+      }
+    )
+  }
+  
 
 }
