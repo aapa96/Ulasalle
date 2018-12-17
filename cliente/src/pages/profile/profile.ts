@@ -38,7 +38,15 @@ export class ProfilePage {
     console.log('ionViewDidLoad ProfilePage');
   }
 
-
+  update(){
+    this.services.updateUser(this.userfull).subscribe(
+      (result) =>{
+        console.log(result);
+        this.services.generateCrud('put','users');
+        this.navCtrl.pop();
+      }
+    )
+  }
   getUser(){
     this.services.getUser(this.user.id).subscribe(
       (result) =>{

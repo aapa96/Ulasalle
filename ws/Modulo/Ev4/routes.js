@@ -8,6 +8,7 @@ api.post('/user/create',controlador.saveUser);
 api.post('/user/login',controlador.loginUser);
 api.put('/user/update',controlador.UserUpdate);
 api.get('/user/read/:id',controlador.UsersReadOne);
+api.get('/user/read',controlador.UserRead);
 
 api.post('/editoriales/create',controlador.EditorialesCreate);
 api.get('/editoriales/read',controlador.EditorialesRead);

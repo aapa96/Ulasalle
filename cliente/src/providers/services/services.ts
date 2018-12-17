@@ -148,6 +148,24 @@ export class ServicesProvider {
     },  httpOptions);
   
   }
+  updateUser(user:any){
+    const httpOptions =  {
+        headers:  new HttpHeaders( {
+            'Content-Type': 'application/json'
+        })
+    };
+    return this.http.put(this.url + 'user/update', {
+      id:user.id,
+      userName:user.userName,
+      password:user.password,
+      gender:user.gender,
+      birth:user.birth,
+      estatus:user.estatus,
+      role_id:user.role_id
+
+    },  httpOptions);
+  
+  }
 
 
   crud(type,entity){
