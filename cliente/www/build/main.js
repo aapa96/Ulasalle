@@ -4,150 +4,6 @@ webpackJsonp([5],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_services_services__ = __webpack_require__(33);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the AddPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AddPage = /** @class */ (function () {
-    function AddPage(navCtrl, sp, navParams) {
-        this.navCtrl = navCtrl;
-        this.sp = sp;
-        this.navParams = navParams;
-        this.branch = {};
-        this.editorial = {};
-        this.organization = {};
-        this.value = this.navParams.get("value");
-    }
-    AddPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AddPage');
-    };
-    AddPage.prototype.clickMe = function (item) {
-        var _this = this;
-        if (item == 'branch') {
-            this.branch.status = 1;
-            console.log(this.branch);
-            this.sp.createBranch(this.branch).subscribe(function (result) {
-                console.log(result);
-                _this.branch = {},
-                    _this.navCtrl.pop();
-            });
-        }
-        if (item == 'editorial') {
-            this.editorial.status = 1;
-            this.sp.createEditorial(this.editorial).subscribe(function (result) {
-                console.log(result);
-                _this.editorial = {},
-                    _this.navCtrl.pop();
-            });
-        }
-        if (item == 'organization') {
-            this.organization.status = 1;
-            this.sp.createOrganization(this.organization).subscribe(function (result) {
-                console.log(result);
-                _this.organization = {},
-                    _this.navCtrl.pop();
-            });
-        }
-    };
-    AddPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/add/add.html"*/'<!--\n  Generated template for the AddPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title *ngIf="value === \'branch\'">Agregar sucursal</ion-title>\n    <ion-title *ngIf="value === \'editorial\'">Agregar editorial</ion-title>\n    <ion-title *ngIf="value === \'organization\'">Agregar Organizacion</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<div *ngIf="value === \'branch\'">\n    <ion-list >\n        <ion-item>\n            <ion-label floating >Name</ion-label>\n            <ion-input type="" [(ngModel)]="branch.name"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Address</ion-label>\n            <ion-input type="" [(ngModel)]="branch.address"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Latitude</ion-label>\n            <ion-input type="" [(ngModel)]="branch.latitude"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >longitude</ion-label>\n            <ion-input type="" [(ngModel)]="branch.longitude"></ion-input>\n          </ion-item>\n          <button  (click)="clickMe(\'branch\')" ion-button>Agregar</button>\n    </ion-list>\n</div>\n\n\n\n<div *ngIf="value === \'editorial\'">\n    <ion-list >\n        <ion-item>\n            <ion-label floating >Name</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.name"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Address</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.address"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Country</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.country"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Website</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.webiste"></ion-input>\n          </ion-item>\n          <button  (click)="clickMe(\'editorial\')" ion-button>Agregar</button>\n    </ion-list>\n</div>\n\n\n\n<div *ngIf="value === \'organization\'">\n    <ion-list >\n        <ion-item>\n            <ion-label floating >Name</ion-label>\n            <ion-input type="" [(ngModel)]="organization.name"></ion-input>\n          </ion-item>\n           \n          <button  (click)="clickMe(\'organization\')" ion-button>Agregar</button>\n    </ion-list>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/add/add.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_services_services__["a" /* ServicesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-    ], AddPage);
-    return AddPage;
-}());
-
-//# sourceMappingURL=add.js.map
-
-/***/ }),
-
-/***/ 104:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_services_services__ = __webpack_require__(33);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var RegisterPage = /** @class */ (function () {
-    function RegisterPage(services, navCtrl, navParams) {
-        this.services = services;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.user = {
-            userName: "",
-            password: "",
-            gender: "",
-            birth: "",
-            estatus: "1",
-            role_id: "3"
-        };
-    }
-    RegisterPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RegisterPage');
-    };
-    RegisterPage.prototype.register = function () {
-        var _this = this;
-        console.log(this.user);
-        this.services.register(this.user).subscribe(function (result) {
-            _this.services.generateCrud('post', 'users');
-            _this.navCtrl.pop();
-        });
-    };
-    RegisterPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/register/register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registrarse</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list color="primary">\n\n        <ion-item>\n          <ion-label fixed>Username</ion-label>\n          <ion-input type="text" value="" [(ngModel)]="user.userName"></ion-input>\n        </ion-item>\n      \n        <ion-item>\n          <ion-label fixed>Password</ion-label>\n          <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label>Birthday</ion-label>\n            <ion-datetime [(ngModel)]="user.birth" displayFormat="YYYY MM DD" ></ion-datetime>\n        </ion-item>\n        <ion-item>\n          <ion-label>Genero</ion-label>\n          <ion-select [(ngModel)]="user.gender">\n            <ion-option value="1" >Masculino</ion-option>\n            <ion-option value="2" >Femenino</ion-option>\n          </ion-select>\n        </ion-item>\n\n\n        <button ion-button (click)="register()" >Registrarse</button>\n      \n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/register/register.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_services_services__["a" /* ServicesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-    ], RegisterPage);
-    return RegisterPage;
-}());
-
-//# sourceMappingURL=register.js.map
-
-/***/ }),
-
-/***/ 105:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
@@ -234,7 +90,7 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 106:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -359,15 +215,95 @@ var TextPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 107:
+/***/ 105:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_services_services__ = __webpack_require__(33);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the AddPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AddPage = /** @class */ (function () {
+    function AddPage(navCtrl, sp, navParams) {
+        this.navCtrl = navCtrl;
+        this.sp = sp;
+        this.navParams = navParams;
+        this.branch = {};
+        this.editorial = {};
+        this.organization = {};
+        this.value = this.navParams.get("value");
+    }
+    AddPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AddPage');
+    };
+    AddPage.prototype.clickMe = function (item) {
+        var _this = this;
+        if (item == 'branch') {
+            this.branch.status = 1;
+            console.log(this.branch);
+            this.sp.createBranch(this.branch).subscribe(function (result) {
+                console.log(result);
+                _this.branch = {},
+                    _this.navCtrl.pop();
+            });
+        }
+        if (item == 'editorial') {
+            this.editorial.status = 1;
+            this.sp.createEditorial(this.editorial).subscribe(function (result) {
+                console.log(result);
+                _this.editorial = {},
+                    _this.navCtrl.pop();
+            });
+        }
+        if (item == 'organization') {
+            this.organization.status = 1;
+            this.sp.createOrganization(this.organization).subscribe(function (result) {
+                console.log(result);
+                _this.organization = {},
+                    _this.navCtrl.pop();
+            });
+        }
+    };
+    AddPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-add',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/add/add.html"*/'<!--\n  Generated template for the AddPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title *ngIf="value === \'branch\'">Agregar sucursal</ion-title>\n    <ion-title *ngIf="value === \'editorial\'">Agregar editorial</ion-title>\n    <ion-title *ngIf="value === \'organization\'">Agregar Organizacion</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<div *ngIf="value === \'branch\'">\n    <ion-list >\n        <ion-item>\n            <ion-label floating >Name</ion-label>\n            <ion-input type="" [(ngModel)]="branch.name"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Address</ion-label>\n            <ion-input type="" [(ngModel)]="branch.address"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Latitude</ion-label>\n            <ion-input type="" [(ngModel)]="branch.latitude"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >longitude</ion-label>\n            <ion-input type="" [(ngModel)]="branch.longitude"></ion-input>\n          </ion-item>\n          <button  (click)="clickMe(\'branch\')" ion-button>Agregar</button>\n    </ion-list>\n</div>\n\n\n\n<div *ngIf="value === \'editorial\'">\n    <ion-list >\n        <ion-item>\n            <ion-label floating >Name</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.name"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Address</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.address"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Country</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.country"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label floating >Website</ion-label>\n            <ion-input type="" [(ngModel)]="editorial.webiste"></ion-input>\n          </ion-item>\n          <button  (click)="clickMe(\'editorial\')" ion-button>Agregar</button>\n    </ion-list>\n</div>\n\n\n\n<div *ngIf="value === \'organization\'">\n    <ion-list >\n        <ion-item>\n            <ion-label floating >Name</ion-label>\n            <ion-input type="" [(ngModel)]="organization.name"></ion-input>\n          </ion-item>\n           \n          <button  (click)="clickMe(\'organization\')" ion-button>Agregar</button>\n    </ion-list>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/add/add.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_services_services__["a" /* ServicesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], AddPage);
+    return AddPage;
+}());
+
+//# sourceMappingURL=add.js.map
+
+/***/ }),
+
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StartPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -416,6 +352,70 @@ var StartPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 107:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_services_services__ = __webpack_require__(33);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the RegisterPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var RegisterPage = /** @class */ (function () {
+    function RegisterPage(services, navCtrl, navParams) {
+        this.services = services;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.user = {
+            userName: "",
+            password: "",
+            gender: "",
+            birth: "",
+            estatus: "1",
+            role_id: "3"
+        };
+    }
+    RegisterPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad RegisterPage');
+    };
+    RegisterPage.prototype.register = function () {
+        var _this = this;
+        console.log(this.user);
+        this.services.register(this.user).subscribe(function (result) {
+            _this.services.generateCrud('post', 'users');
+            _this.navCtrl.pop();
+        });
+    };
+    RegisterPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-register',template:/*ion-inline-start:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/register/register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registrarse</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list color="primary">\n\n        <ion-item>\n          <ion-label fixed>Username</ion-label>\n          <ion-input type="text" value="" [(ngModel)]="user.userName"></ion-input>\n        </ion-item>\n      \n        <ion-item>\n          <ion-label fixed>Password</ion-label>\n          <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label>Birthday</ion-label>\n            <ion-datetime [(ngModel)]="user.birth" displayFormat="YYYY MM DD" ></ion-datetime>\n        </ion-item>\n        <ion-item>\n          <ion-label>Genero</ion-label>\n          <ion-select [(ngModel)]="user.gender">\n            <ion-option value="1" >Masculino</ion-option>\n            <ion-option value="2" >Femenino</ion-option>\n          </ion-select>\n        </ion-item>\n\n\n        <button ion-button (click)="register()" >Registrarse</button>\n      \n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/alexparedesaranzamendi/Desktop/Universidad/ulasalle/cliente/src/pages/register/register.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_services_services__["a" /* ServicesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], RegisterPage);
+    return RegisterPage;
+}());
+
+//# sourceMappingURL=register.js.map
+
+/***/ }),
+
 /***/ 119:
 /***/ (function(module, exports) {
 
@@ -438,19 +438,19 @@ webpackEmptyAsyncContext.id = 119;
 
 var map = {
 	"../pages/add/add.module": [
-		282,
+		283,
 		4
 	],
 	"../pages/login/login.module": [
-		284,
+		282,
 		3
 	],
 	"../pages/register/register.module": [
-		283,
+		285,
 		2
 	],
 	"../pages/start/start.module": [
-		285,
+		284,
 		1
 	],
 	"../pages/text/text.module": [
@@ -504,11 +504,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_services_services__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_text_text__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_add__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_login_login__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_register_register__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_start_start__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_text_text__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_add__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_login_login__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_register_register__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_start_start__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -546,10 +546,10 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/add/add.module#AddPageModule', name: 'AddPage', segment: 'add', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add/add.module#AddPageModule', name: 'AddPage', segment: 'add', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/start/start.module#StartPageModule', name: 'StartPage', segment: 'start', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/text/text.module#TextPageModule', name: 'TextPage', segment: 'text', priority: 'low', defaultHistory: [] }
                     ]
                 })
@@ -585,7 +585,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_start_start__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_start_start__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -806,8 +806,8 @@ var ServicesProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_services_services__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__text_text__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_add__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__text_text__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_add__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

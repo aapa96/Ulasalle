@@ -1,0 +1,20 @@
+{
+  "name": "ulasalle",
+  "version": "1.0.0",
+  "description": "<h1> Curso Distribuidas </h1> <h6> use 'npm start' on WS </h6> <h6> use 'ionic serve' on Cliente </h6>",
+  "main": "index.js",
+  "scripts": {
+    "start":"node ws",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aapa96/ulasalle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aapa96/ulasalle/issues"
+  },
+  "homepage": "https://github.com/aapa96/ulasalle#readme"
+}
